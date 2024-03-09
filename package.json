@@ -9,6 +9,10 @@
     "dev": "tsx watch --env-file=.env ./src/infra/server.ts",
     "debug": "tsx watch --env-file=.env --inspect-brk ./src/infra/server.ts",
     "format": "biome check --apply src",
+    "test": "pnpm run test:unit && pnpm run test:int",
+    "test:unit": "vitest run --c ./test/vitest.config-unit.ts",
+    "test:int": "vitest run --c ./test/vitest.config-int.ts",
+    "test:coverage": "vitest run --c ./test/vitest.config-int.ts --coverage",
     "migration:up": "tsx --env-file=.env ./src/infra/database/migrator up",
     "migration:down": "tsx --env-file=.env ./src/infra/database/migrator down",
     "migration:create": "tsx --env-file=.env ./src/infra/database/migrator create",
@@ -23,10 +27,13 @@
     "@swc/core": "^1.4.6",
     "@types/node": "^20.11.25",
     "@types/pg": "^8.11.2",
+    "@vitest/coverage-v8": "^1.3.1",
     "esbuild": "^0.20.1",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "vitest": "^1.3.1",
+    "vitest-mock-extended": "^1.3.1"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
