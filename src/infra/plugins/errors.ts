@@ -1,5 +1,5 @@
 import { FastifyError, FastifyReply, FastifyRequest } from "fastify";
-import { HTTPError } from "~modules/common/adapters/assertError";
+import { HTTPError } from "~modules/common/errors/assertError";
 
 export const errorHandler = (
   error: FastifyError | Error,

@@ -5,9 +5,10 @@ import { fastifyRequestContext } from "@fastify/request-context";
 import fastifySwagger from "@fastify/swagger";
 import { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
 import fastify from "fastify";
+import { getLogger } from "~config/logger";
 
 const app = fastify({
-  logger: true,
+  logger: getLogger(),
 }).withTypeProvider<TypeBoxTypeProvider>();
 
 const configurePlugins = async () => {
@@ -33,8 +34,12 @@ const configurePlugins = async () => {
     max: 500,
     timeWindow: "1 minute",
   });
+
+  await app.ready();
 };
 
 export const setup = async () => {
   await configurePlugins();
+
+  return app;
 };

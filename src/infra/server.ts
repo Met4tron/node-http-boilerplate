@@ -1,4 +1,4 @@
-import { appConfig } from "~config";
+import { appConfig } from "~config/config";
 import { setup } from "~infra/app";
 
 async function bootstrap() {
