@@ -1,16 +1,16 @@
-import { appConfig } from "~config/config";
-import { setup } from "~infra/app";
+import { appConfig } from '~config/config';
+import { setup } from '~infra/app';
 
 async function bootstrap() {
-  const app = await setup();
+	const app = await setup();
 
-  try {
-    await app.listen({
-      port: appConfig.server.port,
-    });
-  } catch (e) {
-    app.log.error(e);
-  }
+	try {
+		await app.listen({
+			port: appConfig.server.port,
+		});
+	} catch (e) {
+		app.log.error(e);
+	}
 }
 
 bootstrap();

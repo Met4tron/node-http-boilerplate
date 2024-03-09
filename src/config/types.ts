@@ -1,18 +1,18 @@
 export type ServerConfig = {
-  port: number;
+	port: number;
 };
 
 export type DatabaseConfig = {
-  user: string;
-  password: string;
-  host: string;
-  port: number;
-  database: string;
-  ssl: boolean;
+	user: string;
+	password: string;
+	host: string;
+	port: number;
+	database: string;
+	ssl: boolean;
 };
 
 export type AppConfig = {
-  env: "development" | "test" | "staging" | "production";
-  server: ServerConfig;
-  database: DatabaseConfig;
+	env: 'development' | 'test' | 'staging' | 'production';
+	server: ServerConfig;
+	database: DatabaseConfig;
 };
